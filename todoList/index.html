@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo  List</title>
+    
+    <link rel="shortcut icon" href="./ToDo-list.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mt-5  pt-5">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <form action="">
+                    <div class="form-group mb-4">
+                        <input type="text" id="fullName" class="form-control" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <input type="email" id="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <input type="password" id="pass" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="form-group ">
+                        <input type="submit" id="userAdd" class="btn btn-primary w-100" value="Submit">
+                        <input type="submit" id="changeUser" class="btn btn-secondary w-100 d-none" value="Change">
+                    </div>
+                </form>
+            </div>
+            <div class="col-7">
+                <input type="text" id="myInput" onkeyup="myFunction()" class="form-control mb-3" placeholder="Search...">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+function myFunction() {
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[1];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+    </script>
+
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
